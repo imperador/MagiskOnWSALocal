@@ -320,7 +320,7 @@ jobs:
 
       - name: Expand images
         run: |
-          ls ${{ matrix.arch }}/
+          ls -R ${{ matrix.arch }}/
           e2fsck -yf ${{ matrix.arch }}/system_ext.img
           system_ext_size=$(( $(du -sB512 ${{ matrix.arch }}/system_ext.img | cut -f1) + 20000 ))
           resize2fs ${{ matrix.arch }}/system_ext.img "$system_ext_size"s
